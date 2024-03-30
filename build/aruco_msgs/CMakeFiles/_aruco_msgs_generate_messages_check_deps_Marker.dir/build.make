@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/ubuntu/catkin_ws/build
 include aruco_msgs/CMakeFiles/_aruco_msgs_generate_messages_check_deps_Marker.dir/progress.make
 
 aruco_msgs/CMakeFiles/_aruco_msgs_generate_messages_check_deps_Marker:
-	cd /home/ubuntu/catkin_ws/build/aruco_msgs && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py aruco_msgs /home/ubuntu/catkin_ws/src/aruco_msgs/msg/Marker.msg std_msgs/Header:geometry_msgs/Pose:geometry_msgs/PoseWithCovariance:geometry_msgs/Point:geometry_msgs/Quaternion
+	cd /home/ubuntu/catkin_ws/build/aruco_msgs && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py aruco_msgs /home/ubuntu/catkin_ws/src/aruco_msgs/msg/Marker.msg geometry_msgs/Pose:geometry_msgs/Point:geometry_msgs/PoseWithCovariance:std_msgs/Header:geometry_msgs/Quaternion
 
 _aruco_msgs_generate_messages_check_deps_Marker: aruco_msgs/CMakeFiles/_aruco_msgs_generate_messages_check_deps_Marker
 _aruco_msgs_generate_messages_check_deps_Marker: aruco_msgs/CMakeFiles/_aruco_msgs_generate_messages_check_deps_Marker.dir/build.make

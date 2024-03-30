@@ -17,10 +17,11 @@ octoliner.set_sensitivity(0.8)
 def octoliner_line_tracking():
     # Read all channel values
     values = [octoliner.analog_read(i) for i in range(7,-1,-1)]
-    k_right = values[0]*0.6 + values[1]*0.35 + values[2]*0.2 + values[3]*0.1
-    k_left = values[7]*0.6 + values[6]*0.35 + values[5]*0.2 + values[4]*0.1
+    k_right = values[0]*0.7 + values[1]*0.35 + values[2]*0.2 + values[3]*0.1
+    k_left = values[7]*0.7 + values[6]*0.35 + values[5]*0.2 + values[4]*0.1
     # Print them to console
     k_rotate = k_right - k_left
+    print(values)
     #print(k_rotate)
 
     return(k_rotate)

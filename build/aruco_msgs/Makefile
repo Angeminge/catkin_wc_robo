@@ -68,6 +68,18 @@ install/strip/fast: preinstall/fast
 	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
 
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
 # Special rule for the target list_install_components
 list_install_components:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
@@ -89,18 +101,6 @@ install/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
 	/usr/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
-
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
-
-# Special rule for the target install/local
-install/local/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local/fast
 
 # Special rule for the target test
 test:
@@ -168,21 +168,6 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-aruco_msgs/CMakeFiles/aruco_msgs_genlisp.dir/rule:
-	cd /home/ubuntu/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 aruco_msgs/CMakeFiles/aruco_msgs_genlisp.dir/rule
-.PHONY : aruco_msgs/CMakeFiles/aruco_msgs_genlisp.dir/rule
-
-# Convenience name for target.
-aruco_msgs_genlisp: aruco_msgs/CMakeFiles/aruco_msgs_genlisp.dir/rule
-
-.PHONY : aruco_msgs_genlisp
-
-# fast build rule for target.
-aruco_msgs_genlisp/fast:
-	cd /home/ubuntu/catkin_ws/build && $(MAKE) -f aruco_msgs/CMakeFiles/aruco_msgs_genlisp.dir/build.make aruco_msgs/CMakeFiles/aruco_msgs_genlisp.dir/build
-.PHONY : aruco_msgs_genlisp/fast
-
-# Convenience name for target.
 aruco_msgs/CMakeFiles/_aruco_msgs_generate_messages_check_deps_Marker.dir/rule:
 	cd /home/ubuntu/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 aruco_msgs/CMakeFiles/_aruco_msgs_generate_messages_check_deps_Marker.dir/rule
 .PHONY : aruco_msgs/CMakeFiles/_aruco_msgs_generate_messages_check_deps_Marker.dir/rule
@@ -228,21 +213,6 @@ std_msgs_generate_messages_lisp/fast:
 .PHONY : std_msgs_generate_messages_lisp/fast
 
 # Convenience name for target.
-aruco_msgs/CMakeFiles/aruco_msgs_genpy.dir/rule:
-	cd /home/ubuntu/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 aruco_msgs/CMakeFiles/aruco_msgs_genpy.dir/rule
-.PHONY : aruco_msgs/CMakeFiles/aruco_msgs_genpy.dir/rule
-
-# Convenience name for target.
-aruco_msgs_genpy: aruco_msgs/CMakeFiles/aruco_msgs_genpy.dir/rule
-
-.PHONY : aruco_msgs_genpy
-
-# fast build rule for target.
-aruco_msgs_genpy/fast:
-	cd /home/ubuntu/catkin_ws/build && $(MAKE) -f aruco_msgs/CMakeFiles/aruco_msgs_genpy.dir/build.make aruco_msgs/CMakeFiles/aruco_msgs_genpy.dir/build
-.PHONY : aruco_msgs_genpy/fast
-
-# Convenience name for target.
 aruco_msgs/CMakeFiles/std_msgs_generate_messages_eus.dir/rule:
 	cd /home/ubuntu/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 aruco_msgs/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
 .PHONY : aruco_msgs/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
@@ -286,21 +256,6 @@ geometry_msgs_generate_messages_lisp: aruco_msgs/CMakeFiles/geometry_msgs_genera
 geometry_msgs_generate_messages_lisp/fast:
 	cd /home/ubuntu/catkin_ws/build && $(MAKE) -f aruco_msgs/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make aruco_msgs/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build
 .PHONY : geometry_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-aruco_msgs/CMakeFiles/_aruco_msgs_generate_messages_check_deps_MarkerArray.dir/rule:
-	cd /home/ubuntu/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 aruco_msgs/CMakeFiles/_aruco_msgs_generate_messages_check_deps_MarkerArray.dir/rule
-.PHONY : aruco_msgs/CMakeFiles/_aruco_msgs_generate_messages_check_deps_MarkerArray.dir/rule
-
-# Convenience name for target.
-_aruco_msgs_generate_messages_check_deps_MarkerArray: aruco_msgs/CMakeFiles/_aruco_msgs_generate_messages_check_deps_MarkerArray.dir/rule
-
-.PHONY : _aruco_msgs_generate_messages_check_deps_MarkerArray
-
-# fast build rule for target.
-_aruco_msgs_generate_messages_check_deps_MarkerArray/fast:
-	cd /home/ubuntu/catkin_ws/build && $(MAKE) -f aruco_msgs/CMakeFiles/_aruco_msgs_generate_messages_check_deps_MarkerArray.dir/build.make aruco_msgs/CMakeFiles/_aruco_msgs_generate_messages_check_deps_MarkerArray.dir/build
-.PHONY : _aruco_msgs_generate_messages_check_deps_MarkerArray/fast
 
 # Convenience name for target.
 aruco_msgs/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule:
@@ -423,6 +378,81 @@ aruco_msgs_gencpp/fast:
 .PHONY : aruco_msgs_gencpp/fast
 
 # Convenience name for target.
+aruco_msgs/CMakeFiles/aruco_msgs_genpy.dir/rule:
+	cd /home/ubuntu/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 aruco_msgs/CMakeFiles/aruco_msgs_genpy.dir/rule
+.PHONY : aruco_msgs/CMakeFiles/aruco_msgs_genpy.dir/rule
+
+# Convenience name for target.
+aruco_msgs_genpy: aruco_msgs/CMakeFiles/aruco_msgs_genpy.dir/rule
+
+.PHONY : aruco_msgs_genpy
+
+# fast build rule for target.
+aruco_msgs_genpy/fast:
+	cd /home/ubuntu/catkin_ws/build && $(MAKE) -f aruco_msgs/CMakeFiles/aruco_msgs_genpy.dir/build.make aruco_msgs/CMakeFiles/aruco_msgs_genpy.dir/build
+.PHONY : aruco_msgs_genpy/fast
+
+# Convenience name for target.
+aruco_msgs/CMakeFiles/_catkin_empty_exported_target.dir/rule:
+	cd /home/ubuntu/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 aruco_msgs/CMakeFiles/_catkin_empty_exported_target.dir/rule
+.PHONY : aruco_msgs/CMakeFiles/_catkin_empty_exported_target.dir/rule
+
+# Convenience name for target.
+_catkin_empty_exported_target: aruco_msgs/CMakeFiles/_catkin_empty_exported_target.dir/rule
+
+.PHONY : _catkin_empty_exported_target
+
+# fast build rule for target.
+_catkin_empty_exported_target/fast:
+	cd /home/ubuntu/catkin_ws/build && $(MAKE) -f aruco_msgs/CMakeFiles/_catkin_empty_exported_target.dir/build.make aruco_msgs/CMakeFiles/_catkin_empty_exported_target.dir/build
+.PHONY : _catkin_empty_exported_target/fast
+
+# Convenience name for target.
+aruco_msgs/CMakeFiles/aruco_msgs_generate_messages_lisp.dir/rule:
+	cd /home/ubuntu/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 aruco_msgs/CMakeFiles/aruco_msgs_generate_messages_lisp.dir/rule
+.PHONY : aruco_msgs/CMakeFiles/aruco_msgs_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+aruco_msgs_generate_messages_lisp: aruco_msgs/CMakeFiles/aruco_msgs_generate_messages_lisp.dir/rule
+
+.PHONY : aruco_msgs_generate_messages_lisp
+
+# fast build rule for target.
+aruco_msgs_generate_messages_lisp/fast:
+	cd /home/ubuntu/catkin_ws/build && $(MAKE) -f aruco_msgs/CMakeFiles/aruco_msgs_generate_messages_lisp.dir/build.make aruco_msgs/CMakeFiles/aruco_msgs_generate_messages_lisp.dir/build
+.PHONY : aruco_msgs_generate_messages_lisp/fast
+
+# Convenience name for target.
+aruco_msgs/CMakeFiles/_aruco_msgs_generate_messages_check_deps_MarkerArray.dir/rule:
+	cd /home/ubuntu/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 aruco_msgs/CMakeFiles/_aruco_msgs_generate_messages_check_deps_MarkerArray.dir/rule
+.PHONY : aruco_msgs/CMakeFiles/_aruco_msgs_generate_messages_check_deps_MarkerArray.dir/rule
+
+# Convenience name for target.
+_aruco_msgs_generate_messages_check_deps_MarkerArray: aruco_msgs/CMakeFiles/_aruco_msgs_generate_messages_check_deps_MarkerArray.dir/rule
+
+.PHONY : _aruco_msgs_generate_messages_check_deps_MarkerArray
+
+# fast build rule for target.
+_aruco_msgs_generate_messages_check_deps_MarkerArray/fast:
+	cd /home/ubuntu/catkin_ws/build && $(MAKE) -f aruco_msgs/CMakeFiles/_aruco_msgs_generate_messages_check_deps_MarkerArray.dir/build.make aruco_msgs/CMakeFiles/_aruco_msgs_generate_messages_check_deps_MarkerArray.dir/build
+.PHONY : _aruco_msgs_generate_messages_check_deps_MarkerArray/fast
+
+# Convenience name for target.
+aruco_msgs/CMakeFiles/aruco_msgs_genlisp.dir/rule:
+	cd /home/ubuntu/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 aruco_msgs/CMakeFiles/aruco_msgs_genlisp.dir/rule
+.PHONY : aruco_msgs/CMakeFiles/aruco_msgs_genlisp.dir/rule
+
+# Convenience name for target.
+aruco_msgs_genlisp: aruco_msgs/CMakeFiles/aruco_msgs_genlisp.dir/rule
+
+.PHONY : aruco_msgs_genlisp
+
+# fast build rule for target.
+aruco_msgs_genlisp/fast:
+	cd /home/ubuntu/catkin_ws/build && $(MAKE) -f aruco_msgs/CMakeFiles/aruco_msgs_genlisp.dir/build.make aruco_msgs/CMakeFiles/aruco_msgs_genlisp.dir/build
+.PHONY : aruco_msgs_genlisp/fast
+
+# Convenience name for target.
 aruco_msgs/CMakeFiles/aruco_msgs_generate_messages_cpp.dir/rule:
 	cd /home/ubuntu/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 aruco_msgs/CMakeFiles/aruco_msgs_generate_messages_cpp.dir/rule
 .PHONY : aruco_msgs/CMakeFiles/aruco_msgs_generate_messages_cpp.dir/rule
@@ -451,21 +481,6 @@ aruco_msgs_geneus: aruco_msgs/CMakeFiles/aruco_msgs_geneus.dir/rule
 aruco_msgs_geneus/fast:
 	cd /home/ubuntu/catkin_ws/build && $(MAKE) -f aruco_msgs/CMakeFiles/aruco_msgs_geneus.dir/build.make aruco_msgs/CMakeFiles/aruco_msgs_geneus.dir/build
 .PHONY : aruco_msgs_geneus/fast
-
-# Convenience name for target.
-aruco_msgs/CMakeFiles/aruco_msgs_generate_messages_lisp.dir/rule:
-	cd /home/ubuntu/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 aruco_msgs/CMakeFiles/aruco_msgs_generate_messages_lisp.dir/rule
-.PHONY : aruco_msgs/CMakeFiles/aruco_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-aruco_msgs_generate_messages_lisp: aruco_msgs/CMakeFiles/aruco_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : aruco_msgs_generate_messages_lisp
-
-# fast build rule for target.
-aruco_msgs_generate_messages_lisp/fast:
-	cd /home/ubuntu/catkin_ws/build && $(MAKE) -f aruco_msgs/CMakeFiles/aruco_msgs_generate_messages_lisp.dir/build.make aruco_msgs/CMakeFiles/aruco_msgs_generate_messages_lisp.dir/build
-.PHONY : aruco_msgs_generate_messages_lisp/fast
 
 # Convenience name for target.
 aruco_msgs/CMakeFiles/aruco_msgs_generate_messages_nodejs.dir/rule:
@@ -519,17 +534,14 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... install/strip"
-	@echo "... aruco_msgs_genlisp"
+	@echo "... install/local"
 	@echo "... _aruco_msgs_generate_messages_check_deps_Marker"
 	@echo "... std_msgs_generate_messages_py"
 	@echo "... std_msgs_generate_messages_lisp"
-	@echo "... aruco_msgs_genpy"
 	@echo "... list_install_components"
 	@echo "... std_msgs_generate_messages_eus"
 	@echo "... aruco_msgs_generate_messages"
 	@echo "... geometry_msgs_generate_messages_lisp"
-	@echo "... _aruco_msgs_generate_messages_check_deps_MarkerArray"
-	@echo "... install"
 	@echo "... std_msgs_generate_messages_cpp"
 	@echo "... geometry_msgs_generate_messages_nodejs"
 	@echo "... aruco_msgs_generate_messages_py"
@@ -538,10 +550,14 @@ help:
 	@echo "... std_msgs_generate_messages_nodejs"
 	@echo "... geometry_msgs_generate_messages_eus"
 	@echo "... aruco_msgs_gencpp"
-	@echo "... install/local"
+	@echo "... aruco_msgs_genpy"
+	@echo "... _catkin_empty_exported_target"
+	@echo "... aruco_msgs_generate_messages_lisp"
+	@echo "... install"
+	@echo "... _aruco_msgs_generate_messages_check_deps_MarkerArray"
+	@echo "... aruco_msgs_genlisp"
 	@echo "... aruco_msgs_generate_messages_cpp"
 	@echo "... aruco_msgs_geneus"
-	@echo "... aruco_msgs_generate_messages_lisp"
 	@echo "... aruco_msgs_generate_messages_nodejs"
 	@echo "... aruco_msgs_gennodejs"
 	@echo "... test"
