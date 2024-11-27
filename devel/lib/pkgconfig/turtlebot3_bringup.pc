@@ -1,4 +1,4 @@
-prefix=/home/ubuntu/catkin_ws/devel
+prefix=/home/ubuntu/catkin_ws_robo/devel
 
 Name: turtlebot3_bringup
 Description: Description of turtlebot3_bringup

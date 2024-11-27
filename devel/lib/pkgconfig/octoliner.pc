@@ -1,4 +1,4 @@
-prefix=/home/ubuntu/catkin_ws/devel
+prefix=/home/ubuntu/catkin_ws_robo/devel
 
 Name: octoliner
 Description: Description of octoliner

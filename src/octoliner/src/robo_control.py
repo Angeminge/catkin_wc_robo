@@ -21,7 +21,7 @@ class RobotController:
         
         # Publishers for controlling the robot
         self.pub = rospy.Publisher('cmd_vel', Twist, queue_size=10)
-        self.pub_color = rospy.Publisher('/color', String, queue_size=10)
+        # self.pub_color = rospy.Publisher('/color', String, queue_size=10)
         self.pub_servo = rospy.Publisher('/servo_angle', Float32, queue_size=10)
         self.pub_sound = rospy.Publisher('/sound', Sound, queue_size=10)
         
@@ -77,7 +77,7 @@ class RobotController:
     def move_degrees(self, degrees):
         start_left_encoder = self.left_encoder
         start_right_encoder = self.right_encoder
-        self.pub_color.publish("6")
+        # self.pub_color.publish("6")
 
         while ((self.left_encoder - start_left_encoder) < degrees and (self.right_encoder - start_right_encoder) < degrees):
             # Move the robot forward
@@ -91,14 +91,14 @@ class RobotController:
         self.command.angular.z = 0.0
         self.command.linear.x = 0.0
         self.pub.publish(self.command)
-        self.pub_color.publish(self.color_lisener)
+        # self.pub_color.publish(self.color_lisener)
         time.sleep(2)
 
     # Main function to control the robot's behavior
     def run(self):
         r = rospy.Rate(10)
         while not rospy.is_shutdown():
-            self.pub_color.publish(self.color_lisener)
+            # self.pub_color.publish(self.color_lisener)
             # Calculate the total value of the line detected by Octoliner
             value_line = sum(self.octoliner.analog_read(i) for i in range(3, 8))
             print(value_line)

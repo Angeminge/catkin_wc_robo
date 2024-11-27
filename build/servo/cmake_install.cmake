@@ -1,8 +1,8 @@
-# Install script for directory: /home/ubuntu/catkin_ws/src/servo
+# Install script for directory: /home/ubuntu/catkin_ws_robo/src/servo
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/ubuntu/catkin_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/ubuntu/catkin_ws_robo/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,17 +38,17 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/ubuntu/catkin_ws/build/servo/catkin_generated/installspace/forward_motion.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/ubuntu/catkin_ws_robo/build/servo/catkin_generated/installspace/forward_motion.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/forward_motion/cmake" TYPE FILE FILES
-    "/home/ubuntu/catkin_ws/build/servo/catkin_generated/installspace/forward_motionConfig.cmake"
-    "/home/ubuntu/catkin_ws/build/servo/catkin_generated/installspace/forward_motionConfig-version.cmake"
+    "/home/ubuntu/catkin_ws_robo/build/servo/catkin_generated/installspace/forward_motionConfig.cmake"
+    "/home/ubuntu/catkin_ws_robo/build/servo/catkin_generated/installspace/forward_motionConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/forward_motion" TYPE FILE FILES "/home/ubuntu/catkin_ws/src/servo/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/forward_motion" TYPE FILE FILES "/home/ubuntu/catkin_ws_robo/src/servo/package.xml")
 endif()
 

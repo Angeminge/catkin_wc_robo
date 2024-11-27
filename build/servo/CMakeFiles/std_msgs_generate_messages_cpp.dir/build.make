@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ubuntu/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/ubuntu/catkin_ws_robo/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ubuntu/catkin_ws/build
+CMAKE_BINARY_DIR = /home/ubuntu/catkin_ws_robo/build
 
 # Utility rule file for std_msgs_generate_messages_cpp.
 
@@ -63,10 +63,10 @@ servo/CMakeFiles/std_msgs_generate_messages_cpp.dir/build: std_msgs_generate_mes
 .PHONY : servo/CMakeFiles/std_msgs_generate_messages_cpp.dir/build
 
 servo/CMakeFiles/std_msgs_generate_messages_cpp.dir/clean:
-	cd /home/ubuntu/catkin_ws/build/servo && $(CMAKE_COMMAND) -P CMakeFiles/std_msgs_generate_messages_cpp.dir/cmake_clean.cmake
+	cd /home/ubuntu/catkin_ws_robo/build/servo && $(CMAKE_COMMAND) -P CMakeFiles/std_msgs_generate_messages_cpp.dir/cmake_clean.cmake
 .PHONY : servo/CMakeFiles/std_msgs_generate_messages_cpp.dir/clean
 
 servo/CMakeFiles/std_msgs_generate_messages_cpp.dir/depend:
-	cd /home/ubuntu/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ubuntu/catkin_ws/src /home/ubuntu/catkin_ws/src/servo /home/ubuntu/catkin_ws/build /home/ubuntu/catkin_ws/build/servo /home/ubuntu/catkin_ws/build/servo/CMakeFiles/std_msgs_generate_messages_cpp.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/ubuntu/catkin_ws_robo/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ubuntu/catkin_ws_robo/src /home/ubuntu/catkin_ws_robo/src/servo /home/ubuntu/catkin_ws_robo/build /home/ubuntu/catkin_ws_robo/build/servo /home/ubuntu/catkin_ws_robo/build/servo/CMakeFiles/std_msgs_generate_messages_cpp.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : servo/CMakeFiles/std_msgs_generate_messages_cpp.dir/depend
 
